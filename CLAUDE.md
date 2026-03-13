@@ -1,4 +1,4 @@
-# Ad Creative - 合同会社Horizonix
+# Ad Creative
 
 このディレクトリはMeta広告用クリエイティブをAI（nanobanana2 / Google Gemini API）で生成・管理するためのワークスペースです。
 

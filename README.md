@@ -1,4 +1,4 @@
-# Ad Creative - 合同会社Horizonix
+# Ad Creative
 
 ## Setup
 

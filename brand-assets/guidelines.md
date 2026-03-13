@@ -1,4 +1,4 @@
-# Brand Guidelines - 合同会社Horizonix
+# Brand Guidelines
 
 ## Brand Colors
 | 用途 | カラーコード | 備考 |
