@@ -34,9 +34,13 @@
 
 1. `brand-assets/guidelines.md` を読み込み、ブランドカラー・フォント・ロゴ情報を把握
 2. `references/` にリファレンス画像があれば読み込んで分析
-3. ヒアリング内容 + ブランドガイドライン + リファレンスを統合して、nanobanana2用のプロンプトを生成
-4. プロンプトをユーザーに提示し、調整があれば反映
-5. 確定したプロンプトを `prompts/{種類}/` にMarkdownで保存（ファイル名: `YYYYMMDD_概要.md`）
+3. **`docs/` 内のプロンプトガイドを参照し、ベストプラクティスに従ってプロンプトを構築する:**
+   - `docs/02_prompting-guide.md` — ゴールデンルール、ライティング・カメラ・雰囲気の指定方法
+   - `docs/03_prompt-tips.md` — 5要素（スタイル/主題/場所/アクション/構図）、実践Tips、広告向けプロンプト例
+   - `docs/01_api-reference.md` — 対応解像度・アスペクト比・APIパラメータ
+4. ヒアリング内容 + ブランドガイドライン + リファレンス + ドキュメントのベストプラクティスを統合して、nanobanana2用のプロンプトを生成
+5. プロンプトをユーザーに提示し、調整があれば反映
+6. 確定したプロンプトを `prompts/{種類}/` にMarkdownで保存（ファイル名: `YYYYMMDD_概要.md`）
 
 ### Phase 3: 画像生成
 
@@ -68,6 +72,10 @@
 ad-creative/
 ├── .env                  # GEMINI_API_KEY
 ├── generate.py           # nanobanana2 API呼び出し
+├── docs/                 # nanobanana2公式ドキュメント（日本語）
+│   ├── 01_api-reference.md    # API仕様・解像度・パラメータ
+│   ├── 02_prompting-guide.md  # プロンプトガイド（実践編）
+│   └── 03_prompt-tips.md      # プロンプトTips・広告向け例
 ├── brand-assets/         # ブランド素材（ロゴ・カラー・フォント）
 ├── references/           # リファレンス画像
 ├── prompts/              # プロンプトテンプレート
