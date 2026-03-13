@@ -34,7 +34,8 @@ def load_env():
 load_env()
 
 API_KEY = os.environ.get("GEMINI_API_KEY")
-API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"
+MODEL_ID = "gemini-3.1-flash-image-preview"
+API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_ID}:generateContent"
 
 # クリエイティブ種類 → 出力先マッピング
 TYPE_MAP = {
@@ -50,6 +51,13 @@ SIZE_HINTS = {
     "story": "1080x1920px (Meta ストーリーズ)",
 }
 
+# アスペクト比マッピング
+ASPECT_RATIOS = {
+    "banner": "16:9",
+    "sns": "1:1",
+    "story": "9:16",
+}
+
 
 def generate_image(prompt: str, creative_type: str) -> bytes | None:
     """Gemini API経由でnanobanana2画像を生成"""
@@ -59,6 +67,8 @@ def generate_image(prompt: str, creative_type: str) -> bytes | None:
 
     size_hint = SIZE_HINTS.get(creative_type, "")
     full_prompt = f"{prompt}\n\n推奨サイズ: {size_hint}" if size_hint else prompt
+
+    aspect_ratio = ASPECT_RATIOS.get(creative_type, "16:9")
 
     payload = {
         "contents": [
@@ -70,6 +80,9 @@ def generate_image(prompt: str, creative_type: str) -> bytes | None:
         ],
         "generationConfig": {
             "responseModalities": ["IMAGE", "TEXT"],
+            "imageConfig": {
+                "aspectRatio": aspect_ratio,
+            },
         },
     }
 
