@@ -116,7 +116,7 @@ def save_image(image_data: bytes, creative_type: str, prompt: str, index: int) -
     output_dir.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_prompt = prompt[:30].replace(" ", "_").replace("/", "_")
+    safe_prompt = prompt[:30].replace(" ", "_").replace("/", "_").replace("\n", "_").replace("\r", "")
     filename = f"{timestamp}_{safe_prompt}_{index}.png"
     filepath = output_dir / filename
 
