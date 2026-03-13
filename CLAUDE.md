@@ -40,7 +40,9 @@
    - `docs/01_api-reference.md` — 対応解像度・アスペクト比・APIパラメータ
 4. ヒアリング内容 + ブランドガイドライン + リファレンス + ドキュメントのベストプラクティスを統合して、nanobanana2用のプロンプトを生成
 5. プロンプトをユーザーに提示し、調整があれば反映
-6. 確定したプロンプトを `prompts/{種類}/` にMarkdownで保存（ファイル名: `YYYYMMDD_概要.md`）
+6. 確定したプロンプトを `prompts/{種類}/` にYAML形式で保存（ファイル名: `YYYYMMDD_概要.yaml`）
+   - メタ情報（campaign, date, type, size, aspect_ratio, platform, target, tone）をYAMLヘッダに記載
+   - 各プロンプトは `prompts` リスト内に name, prompt, output を持つ構造で保存
 
 ### Phase 3: 画像生成
 
